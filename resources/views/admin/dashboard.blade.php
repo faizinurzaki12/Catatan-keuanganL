@@ -6,15 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css')}}">
 </head>
 
 <body>
-    @if(session('success'))
-    <div class="alert alert-success">
-        {{session('success')}}
-    </div>
-    @endif
     <div class="wrapper">
         <!-- buat sidebar -->
         <aside class="sidebar">
@@ -38,6 +33,11 @@
                 <div class="page-title">{{ Auth::user()->name }}</div>
             </div>
 
+            @if(session('success'))
+                <div class="alert alert-success">   
+                    {{session('success')}} 
+                </div>
+            @endif
             <!-- card -->
             <div class="stat-cards">
                 <div class="stat-card card-saldo">
@@ -58,25 +58,32 @@
             <div class="bottom-row">
 
                 <!-- Transaksi -->
-                <div class="transaksi-box">
-                    <h4>Transaksi Terbaru</h4>
-                    @forelse ($transaksiTerbaru as $transaksi)
-                    <div class="transaksi-item">
+                    <div class="transaksi-box">
+    <h4>Transaksi Terbaru</h4>
+    
+    <div class="transaksi-list">
+            @forelse ($transaksiTerbaru as $transaksi)
+            <div class="transaksi-item">
                         <span class="nama">{{ $transaksi->deskripsi }}</span>
-                        @if($transaksi>tipe == 'pemasukan')
+                        
+                        @if($transaksi->tipe == 'pemasukan')
                             <span class="nominal-masuk">
                                 +Rp {{ number_format($transaksi->jumlah, 0, ',', '.') }}
                             </span>
                         @else 
-                        <span class="nominal-keluar">
-                             +Rp {{ number_format($transaksi->jumlah, 0, ',', '.') }}
-                        </span>
+                            <span class="nominal-keluar">
+                                -Rp {{ number_format($transaksi->jumlah, 0, ',', '.') }}
+                            </span>
                         @endif
                     </div>
-                    @empty
-                    <span>Belum Ada Transaksi</span>
-                    @endforelse
-                </div>
+                @empty
+                    <div class="transaksi-item" style="justify-content: center;">
+                        <span style="color: #777;">Belum Ada Transaksi</span>
+                    </div>
+            @endforelse
+            </div>
+
+    </div> 
 
                 <div class="right-col">
 
@@ -102,8 +109,8 @@
                 <!-- target -->
                 <div class="goals-box">
                     <h4>Target goals</h4>
-                    <div class="goal-item">mei 2026</div>
-                    <div class="goal-item">mei 2026</div>
+                    <div class="goal-item">01 Agustus 2026</div>
+                    <div class="goal-item">Rp: 500.000</div>
                 </div>
             </div>
 

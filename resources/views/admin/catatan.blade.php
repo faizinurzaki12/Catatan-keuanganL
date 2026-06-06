@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/catatan.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/catatan.css')}}">
 </head>
 
 <body>
@@ -14,18 +14,25 @@
         <aside class="sidebar">
             <div class="brand">Catatan Keuangan</div>
             <nav>
-                <a href="dashboard.html">Beranda</a>
-                <a href="catatan.html" class="active">CatatanTransaksi</a>
-                <a href="aktivitas.html">Aktivitas</a>
+                <a href="{{ route('admin.dashboard')}}">Beranda</a>
+                <a href="{{ url('/catatan')}}" class="active">CatatanTransaksi</a>
+                <a href="{{ url('/aktivitas')}}">Aktivitas</a>
             </nav>
-            <a href="../auth/login.html" class="logout">Logout</a>
+            <form action="{{ route('logout')}}"  method="post">
+                @csrf
+                <button type="submit" class="btn ms-1 logout">logout</button>
+            </form>
         </aside>
 
         <main class="main">
             <div class="page-title">Catatan</div>
 
             <div class="form-section" id="form-pengeluaran">
-                
+                @if(session('success'))
+                    <div class="alert alert-primary">
+                        {{ session('success')}}
+                    </div>
+                @endif
                 <div class="tab-wrapper">
                     <button class="tab-btn active" id="tab-pengeluaran-q" onclick="switchTab('pengeluaran')">
                         Pengeluaran
@@ -35,7 +42,8 @@
                     </button>
                 </div>
 
-                <form action="" method="post">
+                <form action="/catatan" method="post">
+                    @csrf
                     <input type="hidden" name="tipe" value="pengeluaran">
                     
                     <div class="form-grup">
@@ -56,7 +64,11 @@
             </div>
 
             <div class="form-section" id="form-pemasukan" style="display: none;">
-                
+                @if(session('success'))
+                    <div class="alert alert-primary">
+                        {{ session('success')}}
+                    </div>
+                @endif
                 <div class="tab-wrapper">
                     <button class="tab-btn" id="tab-pengeluaran-m" onclick="switchTab('pengeluaran')">
                         Pengeluaran
@@ -66,7 +78,8 @@
                     </button>
                 </div>
 
-                <form action="" method="post">
+                <form action="/catatan" method="post">
+                    @csrf
                     <input type="hidden" name="tipe" value="pemasukan">
                     
                     <div class="form-grup">

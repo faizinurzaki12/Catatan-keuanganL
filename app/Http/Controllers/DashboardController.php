@@ -36,7 +36,6 @@ class DashboardController extends Controller
 
         $transaksiTerbaru = Transaksi::where('user_id', $user->id)
             ->latest() //urutan terbaru
-            ->take(5)
             ->get();
 
         return view('admin.dashboard', compact(

@@ -13,6 +13,6 @@ class AktivitasController extends Controller
             ->latest()
             ->get();
 
-        return view('aktivitas', compact('aktivitas'));
+        return view('admin.aktivitas', compact('aktivitas'));
     }
 }

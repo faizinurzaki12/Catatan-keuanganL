@@ -43,7 +43,7 @@ class TransaksiController extends Controller
             'tanggal' => now()->toDateString(),
         ]);
         
-        return redirect()->back()->with('success', 'Transaksi Berhasil Di simpan');
+        return redirect()->back()->with('success', 'Transaksi Berhasil Di simpan!');
     }
 
     /**
