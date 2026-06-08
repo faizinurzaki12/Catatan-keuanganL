@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dashboard</title>
+    <title>Aktivitas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/aktivitas.css')}}">
 </head>
 
@@ -31,70 +32,25 @@
             <div class="card-header-title">Aktivitas</div>
             
             <div class="list-wrapper">
+                @forelse($aktivitas as $transaksi)
                 <div class="aktivitas-item">
                     <div class="item-left">
-                        <div class="item-title">Mie ayam</div>
-                        <div class="item-time">36 Menit Yang Lalu</div>
+                        <div class="item-title">{{ $transaksi->deskripsi}}</div>
+                        <div class="item-time">{{ $transaksi->created_at->diffForHumans()}}</div>
                     </div>
-                    <div class="item-price ">-Rp 10.000</div>
+                    @if($transaksi->tipe == 'pemasukan')
+                    <div class="item-price masuk">+Rp {{ number_format($transaksi->jumlah, 0, ',', '.') }}</div>
+                    @else
+                    <div class="item-price keluar">-Rp {{ number_format($transaksi->jumlah, 0, ',', '.') }}</div>
+                    @endif
                 </div>
-
+                @empty
                 <div class="aktivitas-item">
                     <div class="item-left">
-                        <div class="item-title">Mie ayam</div>
-                        <div class="item-time">36 Menit Yang Lalu</div>
-                    </div>
-                    <div class="item-price ">-Rp 10.000</div>
+                        <div class="item-title">Belum Ada Transaksi</div>
+                    </div> 
                 </div>
-                <div class="aktivitas-item">
-                    <div class="item-left">
-                        <div class="item-title">Mie ayam</div>
-                        <div class="item-time">36 Menit Yang Lalu</div>
-                    </div>
-                    <div class="item-price">-Rp 10.000</div>
-                </div>
-                <div class="aktivitas-item">
-                    <div class="item-left">
-                        <div class="item-title">Mie ayam</div>
-                        <div class="item-time">36 Menit Yang Lalu</div>
-                    </div>
-                    <div class="item-price">-Rp 10.000</div>
-                </div>
-                <div class="aktivitas-item">
-                    <div class="item-left">
-                        <div class="item-title">Mie ayam</div>
-                        <div class="item-time">36 Menit Yang Lalu</div>
-                    </div>
-                    <div class="item-price">-Rp 10.000</div>
-                </div>
-                <div class="aktivitas-item">
-                    <div class="item-left">
-                        <div class="item-title">Mie ayam</div>
-                        <div class="item-time">36 Menit Yang Lalu</div>
-                    </div>
-                    <div class="item-price">-Rp 10.000</div>
-                </div>
-                <div class="aktivitas-item">
-                    <div class="item-left">
-                        <div class="item-title">Mie ayam</div>
-                        <div class="item-time">36 Menit Yang Lalu</div>
-                    </div>
-                    <div class="item-price">-Rp 10.000</div>
-                </div>
-                <div class="aktivitas-item">
-                    <div class="item-left">
-                        <div class="item-title">Mie ayam</div>
-                        <div class="item-time">36 Menit Yang Lalu</div>
-                    </div>
-                    <div class="item-price">-Rp 10.000</div>
-                </div>
-                <div class="aktivitas-item">
-                    <div class="item-left">
-                        <div class="item-title">Mie ayam</div>
-                        <div class="item-time">36 Menit Yang Lalu</div>
-                    </div>
-                    <div class="item-price">-Rp 10.000</div>
-                </div>
+                @endforelse
             </div>
         </div>
     </main>

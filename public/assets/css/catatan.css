@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-image: url("../img/background.jpg");
+    background-color: rgb(196, 198, 196);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -23,7 +23,7 @@ body {
 
 .sidebar {
     width: 205px;
-    background-color: rgba(200, 230, 230, 0.75);
+    background-color: white;
     display: flex;
     flex-direction: column;
     padding: 16px 0;
@@ -137,7 +137,7 @@ body {
 .form-section {
     width: 100%;
     max-width: 360px; 
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: white;
     border-radius: 16px;
     padding: 20px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);

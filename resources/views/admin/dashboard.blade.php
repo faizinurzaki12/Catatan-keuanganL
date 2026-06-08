@@ -28,9 +28,9 @@
         <main class="main">
 
             <!-- Judul  -->
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="page-title">Beranda</div>
-                <div class="page-title">{{ Auth::user()->name }}</div>
+            <div class="d-flex page-title justify-content-between align-items-center mb-3">
+                <div class="">Beranda</div>
+                <div class="">{{ Auth::user()->name }}</div>
             </div>
 
             @if(session('success'))
@@ -59,11 +59,11 @@
 
                 <!-- Transaksi -->
                     <div class="transaksi-box">
-    <h4>Transaksi Terbaru</h4>
-    
-    <div class="transaksi-list">
-            @forelse ($transaksiTerbaru as $transaksi)
-            <div class="transaksi-item">
+        <h4>Transaksi Terbaru</h4>
+        
+        <div class="transaksi-list">
+                @forelse ($transaksiTerbaru as $transaksi)
+                <div class="transaksi-item">
                         <span class="nama">{{ $transaksi->deskripsi }}</span>
                         
                         @if($transaksi->tipe == 'pemasukan')
@@ -77,14 +77,12 @@
                         @endif
                     </div>
                 @empty
-                    <div class="transaksi-item" style="justify-content: center;">
-                        <span style="color: #777;">Belum Ada Transaksi</span>
+                    <div class="transaksi-item">
+                        <span>Belum Ada Transaksi</span>
                     </div>
             @endforelse
             </div>
-
-    </div> 
-
+        </div> 
                 <div class="right-col">
 
                     <!-- Ringkasan Bulan Ini -->
@@ -93,15 +91,15 @@
                         <div class="periode">{{ now()->translatedFormat('F Y')}}</div>
                         <div class="bulan-row">
                             <span>Pemasukan</span>
-                            <span class="masuk">Rp {{ number_format($pemasukan, 0, ',', '.') }}</span>
+                            <span class="masuk"> Rp {{ number_format($pemasukan, 0, ',', '.') }}</span>
                         </div>
                         <div class="bulan-row">
                             <span>Pengeluaran</span>
-                            <span class="keluar">Rp {{ number_format($pengeluaran, 0, ',', '.') }}</span>
+                            <span class="keluar"> Rp {{ number_format($pengeluaran, 0, ',', '.') }}</span>
                         </div>
                         <div class="bulan-row saldo">
                             <span>Saldo</span>
-                            <span>Rp {{ number_format($pemasukan - $pengeluaran, 0, ',', '.') }}</span>
+                            <span> Rp {{ number_format($pemasukan - $pengeluaran, 0, ',', '.') }}</span>
                         </div>
                     </div>
                 </div>

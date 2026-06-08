@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-image: url("../img/background.jpg");
+    background-color: rgb(196, 198, 196);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -23,7 +23,7 @@ body {
 
 .sidebar {
     width: 205px;
-    background-color: rgba(200, 230, 230, 0.75);
+    background-color: white;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     display: flex;
@@ -216,7 +216,7 @@ body {
 .card-aktivitas {
     width: 100%;
     max-width: 360px; 
-    background-color: rgba(200, 230, 230, 0.70); 
+    background-color:   rgba(200, 230, 230, 0.70); 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 16px;
@@ -226,7 +226,7 @@ body {
 }
 
 .card-header-title {
-    background-color: rgba(255, 255, 255, 0.4); 
+    background-color: white; 
     color: #094067;
     font-weight: bold;
     font-size: 14px;
@@ -246,7 +246,7 @@ body {
 }
 
 .aktivitas-item {
-    background-color: rgba(255, 255, 255, 0.6); 
+    background-color: white; 
     border-radius: 12px;
     padding: 10px 14px;
     display: flex;
@@ -269,5 +269,15 @@ body {
 
 .item-price {
     font-size: 13px;
+    font-weight: bold;
+}
+
+.masuk {
+    color: #089B59;
+    font-weight: bold;
+}
+
+.keluar {
+    color: #dc5050;
     font-weight: bold;
 }

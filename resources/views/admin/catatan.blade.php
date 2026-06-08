@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dashboard</title>
+    <title>Catatan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/catatan.css')}}">
 </head>
@@ -48,14 +48,14 @@
                     
                     <div class="form-grup">
                         <label class="text-danger" for="deskripsi">deskripsi</label>
-                        <input type="text" id="deskripsi" name="deskripsi" placeholder="Contoh : Beli Makanan...">
+                        <input type="text" id="deskripsi" name="deskripsi" placeholder="Contoh : Beli Makanan..." required>
                     </div>
                     
                     <div class="form-grup">
                         <label class="text-danger" for="jumlah">Jumlah Pengeluaran</label>
                         <div class="input-prefix">
                             <span>Rp</span>
-                            <input type="number" id="jumlah" name="jumlah" placeholder="0" min="0">
+                            <input type="number" id="jumlah" name="jumlah" placeholder="0" min="0" required>
                         </div>
                     </div> 
                     
@@ -84,14 +84,14 @@
                     
                     <div class="form-grup">
                         <label class="text-success" for="deskripsi_pemasukan">deskripsi</label>
-                        <input type="text" id="deskismatch_pemasukan" name="deskripsi" placeholder="Contoh : Gajihan Masuk...">
+                        <input type="text" id="deskismatch_pemasukan" name="deskripsi" placeholder="Contoh : Gajihan Masuk..." required>
                     </div>
                     
                     <div class="form-grup">
-                        <label class="text-success" for="jumlah_pemasukan">Jumlah pemasukan</label>
+                        <label class="text-success" for="jumlah_pemasukan">Jumlah pemasukan</label> 
                         <div class="input-prefix">
                             <span>Rp</span>
-                            <input type="number" id="jumlah_pemasukan" name="jumlah" placeholder="0" min="0">
+                            <input type="number" id="jumlah_pemasukan" name="jumlah" placeholder="0" min="0" required>
                         </div>
                     </div>
                     
