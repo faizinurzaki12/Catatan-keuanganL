@@ -230,7 +230,7 @@ body {
 .card-aktivitas {
     flex: 1;
     min-width: 280px;
-    background-color: rgba(200, 230, 230, 0.70);
+    background-color: #549bd1;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 16px;
