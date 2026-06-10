@@ -30,6 +30,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/aktivitas') }}">Aktivitas</a>
                         </li>
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="post" class="mt-auto w-100">
+                                @csrf
+                                <button type="submit" class="btn text-danger logout text-start p-0">Logout</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
