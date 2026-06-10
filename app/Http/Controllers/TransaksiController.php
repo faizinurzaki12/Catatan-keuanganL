@@ -12,7 +12,10 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        return view('admin.catatan');
+        $catatanTransaksi = Transaksi::where('user_id', auth()->id())
+                                    ->orderBy('created_at', 'desc')
+                                    ->get();
+        return view('admin.catatan' , compact('catatanTransaksi'));
     }
 
     /**

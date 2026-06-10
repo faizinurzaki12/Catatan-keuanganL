@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
@@ -10,9 +9,6 @@ body {
     flex-direction: column;
     height: 100vh;
     background-color: rgb(196, 198, 196);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
 }
 
 .wrapper {
@@ -34,7 +30,7 @@ body {
 }
 
 .sidebar .brand {
-    font-size: 14px;
+    font-size: 19px;
     font-weight: bold;
     padding: 0 16px 16px;
     color: #3DA9FC;
@@ -50,8 +46,8 @@ body {
 
 .sidebar nav a {
     display: block;
-    padding: 14px 16px;
-    font-size: 13px;
+    padding: 10px 8px;
+    font-size: 18px;
     color: #333;
     text-decoration: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
@@ -66,9 +62,9 @@ body {
 }
 
 .sidebar .logout {
-    margin-top: auto; 
+    margin-top: auto;
     padding: 14px 16px;
-    font-size: 13px;
+    font-size: 22px;
     color: #e05;
     font-weight: bold;
     cursor: pointer;
@@ -88,15 +84,23 @@ body {
     gap: 16px;
 }
 
+.card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    height: 100%;
+}
+
 .page-title {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: white;
     backdrop-filter: blur(5px);
     font-size: 15px;
     font-weight: bold;
     color: #3DA9FC;
     padding: 8px 14px;
     border-radius: 8px;
-    width: fit-content;
+    /* width: fit-content; */
 }
 
 .tab-wrapper {
@@ -132,9 +136,19 @@ body {
     color: #fff;
 }
 
+.main {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    width: 100%;
+    padding: 20px;
+}
+
 .form-section {
     width: 100%;
-    max-width: 360px; 
+    max-width: 360px;
     background-color: rgba(255, 255, 255, 0.75);
     border-radius: 16px;
     padding: 20px;
@@ -214,24 +228,28 @@ body {
 
 
 .card-aktivitas {
-    width: 100%;
-    max-width: 360px; 
-    background-color:   rgba(200, 230, 230, 0.70); 
+    flex: 1;
+    min-width: 280px;
+    background-color: rgba(200, 230, 230, 0.70);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 16px;
     padding: 16px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden
 }
 
 .card-header-title {
-    background-color: white; 
+    background-color: white;
     color: #094067;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 20px;
     text-align: center;
-    padding: 10px;
+    padding: 17px 18px;
     border-radius: 12px;
     margin-bottom: 16px;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -241,34 +259,45 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    max-height: 400px;
+    flex: 1;
+    max-height: none;
     overflow-y: auto;
 }
 
+.card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    flex: 1;
+    overflow: hidden;
+}
+
 .aktivitas-item {
-    background-color: white; 
+    background-color: white;
     border-radius: 12px;
-    padding: 10px 14px;
+    padding: 15px 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 5px;
 }
 
 .item-title {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bold;
     color: #333;
 }
 
 .item-time {
-    font-size: 10px;
+    font-size: 11px;
     color: #666;
     margin-top: 2px;
 }
 
 .item-price {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bold;
 }
 
@@ -280,4 +309,115 @@ body {
 .keluar {
     color: #dc5050;
     font-weight: bold;
+}
+
+.btn-keluar {
+    width: 100%;
+    padding: 14px;
+    background: #c70404;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-keluar:hover {
+    background: #a40101;
+}
+
+@media (max-width: 768px) {
+    body {
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        height: calc(100vh - 56px) !important;
+        overflow: hidden !important;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 100%;
+        height: 100% !important;
+        padding: 12px;
+        gap: 12px;
+        overflow: hidden !important;
+    }
+
+    .sidebar {
+        display: none !important;
+    }
+
+    .card-header-title {
+        background-color: white;
+        color: #094067;
+        font-weight: bold;
+        font-size: 18px;
+        text-align: center;
+        padding: 17px 18px;
+        border-radius: 12px;
+        margin-bottom: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .sidebar nav a {
+        font-size: 18px;
+        padding: 6px 10px;
+        border-bottom: none;
+    }
+
+    .card-container {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        gap: 12px !important;
+        padding: 4px 4px 16px 4px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        width: 100%;
+        flex: 1;
+        height: 100% !important;
+    }
+
+    .card-aktivitas {
+        flex: 0 0 78% !important;
+        min-width: 78% !important;
+        scroll-snap-align: center;
+
+        height: 100% !important;
+        max-height: none !important;
+        padding: 14px !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item-left .item-title {
+        font-size: 18px;
+    }
+
+    .item-left .item-time {
+        font-size: 18px;
+    }
+
+    .item-left .item-price {
+        font-size: 18px;
+    }
+
+    .list-wrapper {
+        flex: 1;
+        overflow-y: auto !important;
+        max-height: none !important;
+    }
 }

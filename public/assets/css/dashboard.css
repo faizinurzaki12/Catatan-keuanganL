@@ -8,17 +8,14 @@
 body {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     background-color: rgb(196, 198, 196);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
 }
 
 .wrapper {
     display: flex;
     flex: 1;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .sidebar {
@@ -31,10 +28,11 @@ body {
     border-right: 1px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    min-height: 100%;
 }
 
 .sidebar .brand {
-    font-size: 14px;
+    font-size: 19px;
     font-weight: bold;
     padding: 0 16px 16px;
     color: #3DA9FC;
@@ -48,13 +46,14 @@ body {
     margin-top: 10px;
 }
 
+
 .sidebar nav a {
     display: block;
-    padding: 14px 16px;
-    font-size: 13px;
+    padding: 10px 8px;
+    font-size: 18px;
     color: #333;
     text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: background 0.2s;
 }
 
@@ -66,9 +65,9 @@ body {
 }
 
 .sidebar .logout {
-    margin-top: auto; 
+    margin-top: auto;
     padding: 14px 16px;
-    font-size: 13px;
+    font-size: 22px;
     color: #e05;
     font-weight: bold;
     cursor: pointer;
@@ -81,7 +80,7 @@ body {
 
 .main {
     flex: 1;
-    overflow-y: auto;
+    overflow-y: visible;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -91,7 +90,7 @@ body {
 .page-title {
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(5px);
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     color: #0d578f;
     padding: 8px 14px;
@@ -126,7 +125,7 @@ body {
 }
 
 .stat-card .nominal {
-    font-size: 22px;
+    font-size: 23px;
     font-weight: bold;
 }
 
@@ -144,6 +143,7 @@ body {
 
 .bottom-row {
     display: flex;
+    flex: 1;
     gap: 16px;
     align-items: flex-start;
 }
@@ -151,6 +151,7 @@ body {
 .transaksi-box {
     flex: 2;
     background-color: white;
+    height: auto;
     backdrop-filter: blur(8px);
     border-radius: 16px;
     padding: 16px;
@@ -161,13 +162,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    max-height: 200px;
+    max-height: 350px;
     overflow-y: auto;
     padding-right: 4px;
 }
 
-.transaksi-box h4 {
-    font-size: 13px;
+.transaksi-box h3 {
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 12px;
 }
@@ -176,7 +177,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
-    font-size: 13px;
+    font-size: 14px;
     color: #333;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -187,30 +188,49 @@ body {
 
 .transaksi-item .nama {
     flex: 1;
+    font-size: 19px;
 }
 
 .transaksi-item .nominal-masuk {
     color: #089B59;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .transaksi-item .nominal-keluar {
     color: #dc5050;
     font-weight: bold;
+    font-size: 20px;
 }
 
-.right-col,
-.goals-box {
-    background-color: white;
-    backdrop-filter: blur(5px);
+.right-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: transparent !important;
+    /* backdrop-filter: blur(5px); */
     border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.3);
     padding: 16px;
 }
 
-.bulan-box h4,
-.goals-box h4 {
-    font-size: 14px;
+.bulan-box,
+.goals-box {
+    background-color: white;
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Border tipis biar manis */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* Bayangan halus */
+    width: 100%;
+}
+
+
+
+.bulan-box h3,
+.goals-box h3 {
+    font-size: 23px;
     font-weight: bold;
     color: #094067;
     margin-bottom: 4px;
@@ -218,7 +238,7 @@ body {
 
 .bulan-box .periode,
 .goals-box .periode {
-    font-size: 11px;
+    font-size: 22px;
     color: #555;
     margin-bottom: 12px;
 }
@@ -226,14 +246,14 @@ body {
 .bulan-row {
     display: flex;
     justify-content: space-between;
-    font-size: 12px;
+    font-size: 17px;
     color: #333;
     padding: 4px 0;
 }
 
 .bulan-row .saldo {
     font-weight: bold;
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     margin-top: 6px;
     padding-top: 8px;
 }
@@ -241,17 +261,142 @@ body {
 .bulan-row .masuk {
     color: #089B59;
 }
+
 .bulan-row .keluar {
     color: #dc5050;
 }
 
 .goal-item {
-    font-size: 12px;
+    font-size: 17px;
     color: #333;
     padding: 4px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .goal-item:last-child {
     border-bottom: none;
+}
+
+/* buat responsif */
+@media (max-width: 992px) {
+    .bottom-row {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .transaksi-box {
+        flex: 1.5;
+    }
+
+    .right-col {
+        flex: 1;
+    }
+}
+
+/* reponsive layar hp atau landsacpe */
+@media (max-width: 768px) {
+    body {
+        height: auto !important;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    .wrapper {
+        height: auto !important;
+        flex-direction: column;
+        overflow: visible !important;
+    }
+
+    .main {
+        width: 100%;
+        height: auto !important;
+        padding: 12px;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 16px;
+    }
+
+    .sidebar .brand {
+        padding: 5px 10px;
+        align-items: center;
+        font-size: 19px;
+    }
+
+    .page-title {
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(5px);
+        font-size: 20px;
+        font-weight: bold;
+        color: #0d578f;
+        padding: 8px 14px;
+        border-radius: 8px;
+        /* width: fit-content; */
+    }
+
+    .sidebar nav {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0 !important;
+        gap: 8px;
+    }
+
+    .sidebar nav a {
+        font-size: 18px;
+        padding: 6px 10px;
+        border-bottom: none;
+    }
+
+    .sidebar .logout {
+        margin-top: 0 !important;
+        margin-right: auto;
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .stat-card {
+        width: 100% !important;
+        min-height: 100px;
+    }
+
+    .stat-cards {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .bottom-row {
+        flex-direction: column !important;
+        width: 100%;
+        gap: 16px;
+    }
+
+    .transaksi-box,
+    .right-col {
+        width: 100% !important;
+        flex: 1;
+        font-size: 18px;
+    }
+}
+
+@media(max-height: 500px) and (orientation: landscape) {
+    body {
+        height: auto;
+    }
+
+    .wrapper {
+        overflow: visible;
+    }
+
+    .main {
+        padding: 12px;
+    }
+
 }
